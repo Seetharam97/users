@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login and Sign</title>
+	<style type="text/css">
+	
+	form {border: 3px solid #f1f1f1;}
+
+	input[type=text], input[type=password] {
+  		width: 20%;
+ 	 	padding: 12px 20px;
+  		margin: 15px 0;
+  		display: inline-block;
+  		border: 5px solid #ccc;
+  		box-sizing: border-box;
+
+  	}
+	#button{
+		width:6%;
+		padding: 6px;
+		background-color: #4CAF50;
+		font-size: 20px;
+		font-family: 'Perpetuavar'
+
+	}
+	h1{
+		font-size-adjust: 30px;
+		font-family: Perpetua
+	}
+	.Usr{
+		font-family: Perpetua;
+		font-size:20px;
+		font-weight: bold;
+	}
+</style>
+
+</head>
+
+<body>
+		<div style="font-family: Arial" align="center">
+		
+			<h1> Login </h1>
+			<label class="Usr">UserName:</label>
+			<input id="Username" type="text" placeholder="Enter Username..." name="username" required><br>
+			<label class="Usr">Password: </label>
+			<input id="password" type="password" placeholder="Enter Password..." name="password" required></br>
+			<button id="button" type="Submit">login</button>
+
+
+		</div>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">	</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
+	<script>
+		
+	 $("#button").click(function() {
+		var Username = $("#Username").val();
+		var password = $("#password").val();
+
+		var formdata = new FormData();
+		formdata.append("username",Username);
+		formdata.append("password",password);
+
+		var contentType ="application/json; charset=utf-8";
+		$.ajax({
+			url:"http://127.0.0.1:8000/accounts/login",
+			type: "POST",
+            crossDomain:true,
+			data: formdata,
+			contentType: contentType,
+			success: function (response) {
+                        if(response.status == 'failure'){
+                        	alert(response.msg);
+
+                        } else{
+                        	alert("login success");
+                        }
+                    },
+                    error: function () {
+                        console.log("Failed");
+                    }
+		});
+		});
+	</script>
+
+</html>
