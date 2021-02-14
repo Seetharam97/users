@@ -11,9 +11,9 @@ Step:2
 
 create or activate the vitualenvironment
 if create:
-  type the command: **virtualenv <virtualenv name>**
+  type the command: **virtualenv (virtualenv name)**
 else activate:
-  type the command: **. <virtualenv name>/bin/activate
+  type the command: **. (virtualenv name)/bin/activate
 
 then..
 
