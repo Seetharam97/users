@@ -19,7 +19,10 @@ then..
 
 **pip3 install -r requirement.txt**
 
-Step:3
+Step: 3
+ Configure the database in settings.py
+
+Step: 4
 
 To ready to migrate the tables
 **python3 manage.py makemigrations**
